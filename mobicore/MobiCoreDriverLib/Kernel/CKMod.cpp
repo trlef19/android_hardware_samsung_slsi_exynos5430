@@ -37,6 +37,7 @@
 #include <fcntl.h>
 #include <sys/mman.h>
 #include <errno.h>
+#include <string.h>
 
 #include "CKMod.h"
 
