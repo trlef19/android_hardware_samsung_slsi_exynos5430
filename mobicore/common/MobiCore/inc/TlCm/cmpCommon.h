@@ -12,7 +12,7 @@
  * Copyright © Trustonic Limited 2013.
  *
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright notice,
@@ -69,7 +69,7 @@ typedef uint32_t cmpReturnCode_t;
 /** CMP command header. */
 typedef struct {
     /** Command id. */
-    cmpCommandId_t commandId;
+    cmpCommandId_t commandId; 
 } cmpCommandHeader_t;
 
 /** CMP response header. */
@@ -141,7 +141,7 @@ typedef struct {
     cmpCommandHeader_t cmdHeader;
 } cmpCmdGetVersion_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_GET_VERSION_RSP Response
  * @{ */
@@ -158,7 +158,7 @@ typedef struct {
 
 /** @} */
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_GET_SUID MC_CMP_CMD_GET_SUID
  * @{ */
@@ -172,7 +172,7 @@ typedef struct {
     cmpCommandHeader_t cmdHeader;
 } cmpCmdGetSuid_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_GET_SUID_RSP Response
  * @{ */
@@ -187,7 +187,7 @@ typedef struct {
 
 /** @} */
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_GENERATE_AUTH_TOKEN MC_CMP_CMD_GENERATE_AUTH_TOKEN
  * @{ */
@@ -229,7 +229,7 @@ typedef struct {
     cmpGenAuthTokenCmd_t cmd;
 } cmpCmdGenAuthToken_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_GENERATE_AUTH_TOKEN_RSP Response
  * @{ */
@@ -247,9 +247,9 @@ typedef struct {
     mcSoAuthTokenCont_t soAuthCont;
 } cmpRspGenAuthToken_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 #endif // CMP_COMMON_H_
 

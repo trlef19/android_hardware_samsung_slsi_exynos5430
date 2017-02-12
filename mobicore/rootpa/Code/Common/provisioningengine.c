@@ -3,36 +3,36 @@ Copyright  © Trustonic Limited 2013
 
 All rights reserved.
 
-Redistribution and use in source and binary forms, with or without modification,
+Redistribution and use in source and binary forms, with or without modification, 
 are permitted provided that the following conditions are met:
 
-  1. Redistributions of source code must retain the above copyright notice, this
+  1. Redistributions of source code must retain the above copyright notice, this 
      list of conditions and the following disclaimer.
 
-  2. Redistributions in binary form must reproduce the above copyright notice,
-     this list of conditions and the following disclaimer in the documentation
+  2. Redistributions in binary form must reproduce the above copyright notice, 
+     this list of conditions and the following disclaimer in the documentation 
      and/or other materials provided with the distribution.
 
-  3. Neither the name of the Trustonic Limited nor the names of its contributors
-     may be used to endorse or promote products derived from this software
+  3. Neither the name of the Trustonic Limited nor the names of its contributors 
+     may be used to endorse or promote products derived from this software 
      without specific prior written permission.
 
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED.
-IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED 
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. 
+IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, 
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, 
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, 
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
+LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE 
+OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED 
 OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include <stdbool.h>
+#include <wrapper.h>
 
 
 #include "rootpaErrors.h"
@@ -53,11 +53,11 @@ static const char* const RELATION_NEXT    =    "relation/next";
 static const uint8_t* const SLASH= (uint8_t*)"/";
 
 static const char* const RELATION_INITIAL_POST="initial_post"; // this will make us to send HTTP GET, which
-                                      // is the right thing to do since we do not
+                                      // is the right thing to do since we do not 
                                       // have any data to send to SE, this will need to be different in RootPA initiated trustet installation
 static const char* const RELATION_INITIAL_DELETE="initial_delete"; // this will make us to send HTTP DELETE
 
-#define INT_STRING_LENGTH 12 // (32 bit <= 10 decimal numbers) + "/" + trailing zero.
+#define INT_STRING_LENGTH 12 // (32 bit <= 10 decimal numbers) + "/" + trailing zero. 
 #define INITIAL_URL_BUFFER_LENGTH 255
 
 static char initialUrl_[INITIAL_URL_BUFFER_LENGTH];
@@ -65,18 +65,19 @@ static CallbackFunctionP callbackP_=NULL;
 
 void addSlashToUri(char* uriP)
 {
+    int uriidx;
     LOGD(">>addSlashToUri");
-    int uriidx=strlen(uriP);
+    uriidx=strlen(uriP);
     uriP[uriidx]='/';
-    LOGD("<<addSlashToUri %s", uriP);
+    LOGD("<<addSlashToUri %s", uriP);    
 }
 
 void addBytesToUri(char* uriP, uint8_t* bytes, uint32_t length, bool uuid )
 {
-    LOGD(">>addBytesToUri %d", length);
     int uriidx=strlen(uriP);
-    int i;
+    uint32_t i;
     uint8_t singleNumber=0;
+    LOGD(">>addBytesToUri %d", length);
     for(i=0; i<length; i++)
     {
         singleNumber=(bytes[i]>>4);
@@ -101,27 +102,27 @@ void addIntToUri(char* uriP, uint32_t addThis)
     // using signed integer since this is how SE wants it
     snprintf(intInString, INT_STRING_LENGTH, "/%d", addThis);
     strncpy((uriP+strlen(uriP)), intInString, INT_STRING_LENGTH); // we have earlier made sure there is enough room in uriP, using strncpy here instead strcpy is just to avoid static analysis comments
-    LOGD("add int to URI %s %d", uriP, addThis);
+    LOGD("add int to URI %s %d", uriP, addThis);   
 }
 
 void cleanup(char** linkP, char** relP, char** commandP)
 {
     if(commandP!=NULL)
-    {
+    {    
         free(*commandP);
         *commandP=NULL;
     }
 
     if(relP!=NULL)
-    {
+    {    
         if((*relP!=RELATION_INITIAL_POST) &&
            (*relP!=RELATION_INITIAL_DELETE)) free(*relP);
         *relP=NULL;
     }
 
     if(linkP!=NULL)
-    {
-        free(*linkP);
+    {    
+        free(*linkP); 
         *linkP=NULL;
     }
 }
@@ -135,7 +136,7 @@ rootpaerror_t setInitialAddress(const char* addrP, uint32_t length)
 
     if(INITIAL_URL_BUFFER_LENGTH < (length + 1))
     {
-        return ROOTPA_ERROR_ILLEGAL_ARGUMENT;
+        return ROOTPA_ERROR_ILLEGAL_ARGUMENT;    
     }
     memset(initialUrl_, 0, INITIAL_URL_BUFFER_LENGTH);
     memcpy(initialUrl_, addrP, length);
@@ -151,27 +152,32 @@ char* createBasicLink(mcSuid_t suid)
 {
     char* tmpLinkP=NULL;
     size_t urlLength=0;
-
+    
     urlLength=strlen(initialUrl_) + (sizeof(mcSuid_t)*2) + (sizeof(mcSpid_t)*2) + (sizeof(mcUuid_t)*2)+6; //possible slash and end zero and four dashes
-    tmpLinkP=malloc(urlLength);
-    memset(tmpLinkP,0,urlLength);
-    strncpy(tmpLinkP, initialUrl_, urlLength);
-    addBytesToUri(tmpLinkP, (uint8_t*) &suid, sizeof(suid), false);
+    tmpLinkP=(char*)malloc(urlLength);
+    if(tmpLinkP != NULL)
+    {
+        memset(tmpLinkP,0,urlLength);
+        strncpy(tmpLinkP, initialUrl_, urlLength);
+        addBytesToUri(tmpLinkP, (uint8_t*) &suid, sizeof(suid), false);
+    }
+    else
+    {
+        LOGE("createBasicLink, out of memory");        
+    }
     return tmpLinkP;
 }
 
 
 void doProvisioningWithSe(
-    mcSpid_t spid,
-    mcSuid_t suid,
-    CallbackFunctionP callbackP,
-    SystemInfoCallbackFunctionP getSysInfoP,
+    mcSpid_t spid, 
+    mcSuid_t suid, 
+    CallbackFunctionP callbackP, 
+    SystemInfoCallbackFunctionP getSysInfoP, 
     GetVersionFunctionP getVersionP,
     initialRel_t initialRel,
     trustletInstallationData_t* tltDataP)
 {
-    LOGD(">>doProvisioningWithSe");
-
     rootpaerror_t ret=ROOTPA_OK;
     rootpaerror_t tmpRet=ROOTPA_OK;
     bool workToDo = true;
@@ -186,23 +192,34 @@ void doProvisioningWithSe(
     const char* usedRelP=NULL;
     const char* usedCommandP=NULL;
 
-    callbackP_=callbackP;
+    LOGD(">>doProvisioningWithSe");
+
+    callbackP_=callbackP;    
 
     if(empty(initialUrl_))
     {
         memset(initialUrl_, 0, INITIAL_URL_BUFFER_LENGTH);
-        strncpy(initialUrl_, SE_URL, strlen(SE_URL));
+        strncpy(initialUrl_, SE_URL, strlen(SE_URL));        
     }
 
     linkP=createBasicLink(suid);
-
-    if (initialRel == initialRel_DELETE)
+    if(NULL==linkP)
     {
-	relP = RELATION_INITIAL_DELETE;
+        callbackP(ERROR_STATE, ROOTPA_ERROR_OUT_OF_MEMORY, NULL);
+        return;
     }
     else
     {
-	relP = RELATION_INITIAL_POST;
+        LOGD("SE_ADDRESS %s", linkP);
+    }
+
+    if (initialRel == initialRel_DELETE)
+    {
+    	relP = RELATION_INITIAL_DELETE;
+    }
+    else
+    {
+    	relP = RELATION_INITIAL_POST;
         if(spid!=0) // SPID 0 is not legal. We use it for requesting root container creation only (no sp)
         {
             addIntToUri((char*)linkP, (uint32_t) spid);
@@ -215,17 +232,17 @@ void doProvisioningWithSe(
     ret=openSeClientAndInit();
     if(ROOTPA_OK!=ret)
     {
-        callbackP(ERROR, ret, NULL);
+        callbackP(ERROR_STATE, ret, NULL);
         workToDo=false;
     }
-
+    
     if(tltDataP != NULL) // we are installing trustlet
     {
         ret=buildXmlTrustletInstallationRequest(&responseP, *tltDataP );
         if(ROOTPA_OK!=ret || NULL==responseP)
         {
-            if(ROOTPA_OK==ret) ret=ROOTPA_ERROR_XML;
-            callbackP(ERROR, ret, NULL);
+            if(ROOTPA_OK==ret) ret=ROOTPA_ERROR_XML;  
+            callbackP(ERROR_STATE, ret, NULL);
             workToDo=false;
         }
         else
@@ -235,7 +252,7 @@ void doProvisioningWithSe(
         }
     }
 
-// begin recovery from factory reset 1
+// begin recovery from factory reset 1  
     if(factoryResetAssumed() && relP != RELATION_INITIAL_DELETE && workToDo == true)
     {
         pendingLinkP=linkP;
@@ -243,18 +260,18 @@ void doProvisioningWithSe(
         relP=RELATION_INITIAL_DELETE;
         linkP=createBasicLink(suid);
     }
-// end recovery from factory reset 1
-
+// end recovery from factory reset 1 
+ 
     while(workToDo)
     {
-        LOGD("in loop link: %s\nrel: %s\ncommand: %s\nresponse: %s\n", (linkP==NULL)?"null":linkP,
-                                                                       (relP==NULL)?"null":relP,
-                                                                       (commandP==NULL)?"null":commandP,
+        LOGD("in loop link: %s\nrel: %s\ncommand: %s\nresponse: %s\n", (linkP==NULL)?"null":linkP, 
+                                                                       (relP==NULL)?"null":relP, 
+                                                                       (commandP==NULL)?"null":commandP, 
                                                                        (responseP==NULL)?"null":responseP);
-
+    
         if(NULL==relP)
         {
-// begin recovery from factory reset 2
+// begin recovery from factory reset 2                
             if(pendingLinkP!=NULL && pendingRelP!=NULL)
             {
                 free((void*)linkP);
@@ -266,12 +283,12 @@ void doProvisioningWithSe(
                 continue;
             }
 // end recovery from factory reset 2
-
-
-            callbackP(FINISHED_PROVISIONING, ROOTPA_OK, NULL); // this is the only place where we can be sure
+            
+            
+            callbackP(FINISHED_PROVISIONING, ROOTPA_OK, NULL); // this is the only place where we can be sure 
                                                          // SE does not want to send any more data to us
-                                                         // the other option would be to keep track on the
-                                                         // commands received from SE but since we want
+                                                         // the other option would be to keep track on the 
+                                                         // commands received from SE but since we want 
                                                          // SE to have option to execute also other commands
                                                          // and also allow modification in provisioning sequence
                                                          // without modifying RootPA we use this simpler way.
@@ -294,19 +311,30 @@ void doProvisioningWithSe(
             usedLinkP=linkP;            // originally linkP
             usedRelP=relP;              // originally NULL
             usedCommandP=commandP;      // originally NULL
-
+                
             if(strstr(relP, RELATION_SYSTEMINFO))
-            {
+            {                
                 osInfo_t osSpecificInfo;
                 int mcVersionTag=0;
                 mcVersionInfo_t mcVersion;
 
+#ifdef WIN32
+// TODO- remove the memory allocation from here and handle it properly on C# code
+
+                osSpecificInfo.brandP = (char*)calloc(64, sizeof(char));
+                osSpecificInfo.mnoP = (char*)calloc(64, sizeof(char));
+                osSpecificInfo.imeiEsnP = (char*)calloc(64, sizeof(char));
+                osSpecificInfo.manufacturerP = (char*)calloc(64, sizeof(char));
+                osSpecificInfo.hardwareP = (char*)calloc(64, sizeof(char));
+                osSpecificInfo.modelP = (char*)calloc(64, sizeof(char));
+                osSpecificInfo.versionP = (char*)calloc(64, sizeof(char));
+#endif
                 tmpRet=getSysInfoP(&osSpecificInfo);
-                if(tmpRet!=ROOTPA_OK) ret=tmpRet;
+                if(tmpRet!=ROOTPA_OK) ret=tmpRet;                
 
                 tmpRet=getVersionP(&mcVersionTag, &mcVersion);
                 if(tmpRet!=ROOTPA_OK) ret=tmpRet;
-
+                
                 tmpRet=buildXmlSystemInfo(&responseP, mcVersionTag, &mcVersion, &osSpecificInfo);
                 if(tmpRet!=ROOTPA_OK) ret=tmpRet;
 
@@ -318,23 +346,32 @@ void doProvisioningWithSe(
                 free(osSpecificInfo.modelP);
                 free(osSpecificInfo.versionP);
 
-                tmpRet=httpPutAndReceiveCommand(responseP, &linkP, &relP, &commandP);
-                if(tmpRet!=ROOTPA_OK) ret=tmpRet;
+                if(responseP!=NULL)
+                {
+                    tmpRet=httpPutAndReceiveCommand(responseP, &linkP, &relP, &commandP);
+                    if(tmpRet!=ROOTPA_OK) ret=tmpRet;
+                }
+                else if(ROOTPA_OK==ret)
+                {
+                    workToDo=false;
+                    ret=ROOTPA_ERROR_OUT_OF_MEMORY;
+                }
+                
                 if(ret!=ROOTPA_OK)
                 {
                     LOGE("getSysInfoP, getVersionP or buildXmlSystemInfo or httpPutAndReceiveCommand returned an error %d", ret);
-                    callbackP(ERROR, ret, NULL);
+                    callbackP(ERROR_STATE, ret, NULL);
                     if(tmpRet!=ROOTPA_OK) workToDo=false; // if sending response succeeded, we rely on "relP" to tell whether we should continue or not
                 }
             }
             else if(strstr(relP, RELATION_INITIAL_DELETE))
             {
                 ret=httpDeleteAndReceiveCommand(&linkP, &relP, &commandP);
-
+                
                 if(ret!=ROOTPA_OK)
                 {
                     LOGE("httpDeleteAndReceiveCommand returned an error %d", ret);
-                    callbackP(ERROR, ret, NULL);
+                    callbackP(ERROR_STATE, ret, NULL);
                     workToDo=false;
                 }
             }
@@ -342,11 +379,11 @@ void doProvisioningWithSe(
             {
                 // response may be NULL or trustlet installation request
                 ret=httpPostAndReceiveCommand(responseP, &linkP, &relP, &commandP);
-
+                
                 if(ret!=ROOTPA_OK)
                 {
                     LOGE("httpPostAndReceiveCommand returned an error %d", ret);
-                    callbackP(ERROR, ret, NULL);
+                    callbackP(ERROR_STATE, ret, NULL);
                     workToDo=false;
                 }
             }
@@ -358,7 +395,7 @@ void doProvisioningWithSe(
 
                 if(NULL==responseP)
                 {
-                    if(ROOTPA_OK==ret) ret=ROOTPA_ERROR_XML;
+                    if(ROOTPA_OK==ret) ret=ROOTPA_ERROR_XML;  
                     // have to set these to NULL since we are not even trying to get them from SE now
                     linkP=NULL;
                     relP=NULL;
@@ -367,18 +404,18 @@ void doProvisioningWithSe(
                 }
                 else
                 {
-                    // attempting to return response to SE even if there was something wrong in handleXmlMessage
+                    // attempting to return response to SE even if there was something wrong in handleXmlMessage 
                     tmpRet=httpPostAndReceiveCommand(responseP, &linkP, &relP, &commandP);
                     if(tmpRet!=ROOTPA_OK) ret=tmpRet;
                 }
-
-                if(ret!=ROOTPA_OK && ret!=ROOTPA_ERROR_REGISTRY_OBJECT_NOT_AVAILABLE) // if container is not found, not sending error intent to SP.PA since it is possible that SE can recover.
+                
+                if(ret!=ROOTPA_OK && ret!=ROOTPA_ERROR_REGISTRY_OBJECT_NOT_AVAILABLE) // if container is not found, not sending error intent to SP.PA since it is possible that SE can recover. 
                 {                                                                     // If it can not, it will return an error code anyway.
                     LOGE("httpPostAndReceiveCommand or handleXmlMessage returned an error %d %d", ret, tmpRet);
-                    callbackP(ERROR, ret, NULL);
+                    callbackP(ERROR_STATE, ret, NULL);
                     if(tmpRet!=ROOTPA_OK) workToDo=false; // if sending response succeeded, we rely on "relP" to tell whether we should continue or not
                 }
-
+            
             }
             else if(strstr(relP, RELATION_NEXT))
             {
@@ -386,33 +423,33 @@ void doProvisioningWithSe(
                 if(ret!=ROOTPA_OK)
                 {
                     LOGE("httpGetAndReceiveCommand returned an error %d", ret);
-                    callbackP(ERROR, ret, NULL);
-                    workToDo=false;
+                    callbackP(ERROR_STATE, ret, NULL);
+                    workToDo=false;    
                 }
             }
             else
             {
                 LOGE("DO NOT UNDERSTAND REL %s", relP);
                 ret=ROOTPA_ERROR_ILLEGAL_ARGUMENT;
-                callbackP(ERROR, ret, NULL);
+                callbackP(ERROR_STATE, ret, NULL);
                 workToDo=false;
             }
 
             LOGD("end of provisioning loop work to do: %d, responseP %ld", workToDo, (long int) responseP);
-        }
+        } 
 
         // last round cleaning in order to make sure both original and user pointers are released, but only once
 
         if(!workToDo)
         {
-            LOGD("no more work to do %ld - %ld %ld - %ld %ld - %ld", (long int) linkP, (long int) usedLinkP,
-                                                                     (long int) relP, (long int) usedRelP,
-                                                                     (long int) commandP, (long int) usedCommandP);
+            LOGD("no more work to do %ld - %ld %ld - %ld %ld - %ld", (long int) linkP, (long int) usedLinkP, 
+                                                                     (long int) relP, (long int) usedRelP, 
+                                                                     (long int) commandP, (long int) usedCommandP); 
             // final cleanup
 
             // ensure that we do not clean up twice in case used pointers opint to the original one
             if(linkP==usedLinkP) usedLinkP=NULL;
-            if(relP==usedRelP) usedRelP=NULL;
+            if(relP==usedRelP) usedRelP=NULL;            
             if(commandP==usedCommandP) usedCommandP=NULL;
 
             cleanup((char**) &linkP, (char**) &relP, (char**) &commandP);
@@ -421,16 +458,16 @@ void doProvisioningWithSe(
         // free the used pointers since all the necessary pointers point to new direction.
         // when relation is self we need to give the previous command again and so we keep the
         // data
-
-        if(relP==NULL || strstr(relP, RELATION_SELF)==NULL)
+        
+        if(relP==NULL || strstr(relP, RELATION_SELF)==NULL) 
         {
             cleanup((char**) &usedLinkP, (char**) &usedRelP, (char**) &usedCommandP);
-        }
+        }        
 
         // responseP can be freed at every round
         free((void*)responseP);
         responseP=NULL;
-
+        
     } // while
     closeSeClientAndCleanup();
 
@@ -454,3 +491,4 @@ rootpaerror_t uploadTrustlet(uint8_t* containerDataP, uint32_t containerLength)
     LOGE("uploadTrustlet, no callbackP_");
     return ROOTPA_COMMAND_NOT_SUPPORTED;
 }
+

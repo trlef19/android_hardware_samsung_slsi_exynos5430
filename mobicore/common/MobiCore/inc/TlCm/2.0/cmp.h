@@ -15,7 +15,7 @@
  * Copyright © Trustonic Limited 2013.
  *
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright notice,
@@ -69,7 +69,7 @@ typedef struct {
     mcSoAuthTokenCont_t soAuthTokenCont;
 } cmpCmdBeginSocAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_BEGIN_SOC_AUTHENTICATION_RSP Response_2_0
  * @{ */
@@ -98,9 +98,9 @@ typedef struct {
     cmpBeginSocAuthenticationRsp_t rsp;
 } cmpRspBeginSocAuthentication_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_BEGIN_ROOT_AUTHENTICATION \
   MC_CMP_2_0_CMD_BEGIN_ROOT_AUTHENTICATION
@@ -123,7 +123,7 @@ typedef struct {
     mcSoRootCont_t soRootCont;
 } cmpCmdBeginRootAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_BEGIN_ROOT_AUTHENTICATION_RSP Response_2_0
  * @{ */
@@ -152,9 +152,9 @@ typedef struct {
     cmpBeginRootAuthenticationRsp_t rsp;
 } cmpRspBeginRootAuthentication_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_BEGIN_SP_AUTHENTICATION \
   MC_CMP_2_0_CMD_BEGIN_SP_AUTHENTICATION
@@ -220,7 +220,7 @@ typedef struct {
 
 /** @} */
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_AUTHENTICATE MC_CMP_2_0_CMD_AUTHENTICATE
  * @{ */
@@ -256,7 +256,7 @@ typedef struct {
     cmpCommandHeader_t cmdHeader;
     /** Encrypted and padded data. */
     cmpAuthCmdEd_t ed;
-} cmpAuthCmdSdata_t;
+} cmpAuthCmdSdata_t; 
 
 /** Authenticate signed command and signature. */
 typedef struct {
@@ -272,7 +272,7 @@ typedef struct {
     cmpAuthenticateCmd_t cmd;
 } cmpCmdAuthenticate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_AUTHENTICATE_RSP Response_2_0
  * @{ */
@@ -321,9 +321,9 @@ typedef struct {
     cmpAuthenticateRsp_t rsp;
 } cmpRspAuthenticate_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_AUTHENTICATE_TERMINATE \
   MC_CMP_2_0_CMD_AUTHENTICATE_TERMINATE
@@ -352,7 +352,7 @@ typedef struct {
     cmpAuthenticateTerminateCmd_t cmd;
 } cmpCmdAuthenticateTerminate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_AUTHENTICATE_TERMINATE_RSP Response_2_0
  * @{ */
@@ -426,7 +426,7 @@ typedef struct {
     cmpRootContRegisterActivateCmd_t cmd;
 } cmpCmdRootContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_ROOT_CONT_REGISTER_ACTIVATE_RSP Response_2_0
  * @{ */
@@ -518,7 +518,7 @@ typedef struct {
     cmpRootContUnregisterCmd_t cmd;
 } cmpCmdRootContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_ROOT_CONT_UNREGISTER_RSP Response_2_0
  * @{ */
@@ -561,9 +561,9 @@ typedef struct {
     mcSoAuthTokenCont_t soAuthTokenCont;
 } cmpRspRootContUnregister_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_ROOT_CONT_LOCK_BY_ROOT \
   MC_CMP_2_0_CMD_ROOT_CONT_LOCK_BY_ROOT
@@ -592,7 +592,7 @@ typedef struct {
     cmpRootContLockByRootCmd_t cmd;
 } cmpCmdRootContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_ROOT_CONT_LOCK_BY_ROOT_RSP Response_2_0
  * @{ */
@@ -635,9 +635,9 @@ typedef struct {
     mcSoRootCont_t soRootCont;
 } cmpRspRootContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_ROOT_CONT_UNLOCK_BY_ROOT \
   MC_CMP_2_0_CMD_ROOT_CONT_UNLOCK_BY_ROOT
@@ -666,7 +666,7 @@ typedef struct {
     cmpRootContUnlockByRootCmd_t cmd;
 } cmpCmdRootContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_ROOT_CONT_UNLOCK_BY_ROOT_RSP Response_2_0
  * @{ */
@@ -709,9 +709,9 @@ typedef struct {
     mcSoRootCont_t soRootCont;
 } cmpRspRootContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_REGISTER_ACTIVATE \
   MC_CMP_2_0_CMD_SP_CONT_REGISTER_ACTIVATE
@@ -757,7 +757,7 @@ typedef struct {
     cmpSpContRegisterActivateCmd_t cmd;
 } cmpCmdSpContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_REGISTER_ACTIVATE_RSP Response_2_0
  * @{ */
@@ -837,7 +837,7 @@ typedef struct {
     cmpSpContUnregisterCmd_t cmd;
 } cmpCmdSpContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_UNREGISTER_RSP Response_2_0
  * @{ */
@@ -880,9 +880,9 @@ typedef struct {
     mcSoRootCont_t soRootCont;
 } cmpRspSpContUnregister_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_REGISTER \
   MC_CMP_2_0_CMD_SP_CONT_REGISTER
@@ -929,7 +929,7 @@ typedef struct {
     cmpSpContRegisterCmd_t cmd;
 } cmpCmdSpContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_REGISTER_RSP Response_2_0
  * @{ */
@@ -975,9 +975,9 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpRspSpContRegister_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_LOCK_BY_ROOT \
   MC_CMP_2_0_CMD_SP_CONT_LOCK_BY_ROOT
@@ -989,7 +989,7 @@ typedef struct {
 /** SpContLockByRoot signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeader_t cmdHeader;
+    cmpCommandHeader_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpLockByRootCmdSdata_t;
@@ -1010,7 +1010,7 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpCmdSpContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_LOCK_BY_ROOT_RSP Response_2_0
  * @{ */
@@ -1053,9 +1053,9 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpRspSpContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_UNLOCK_BY_ROOT \
   MC_CMP_2_0_CMD_SP_CONT_UNLOCK_BY_ROOT
@@ -1067,7 +1067,7 @@ typedef struct {
 /** SpContUnlockByRoot signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeader_t cmdHeader;
+    cmpCommandHeader_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpUnlockByRootCmdSdata_t;
@@ -1088,7 +1088,7 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpCmdSpContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_UNLOCK_BY_ROOT_RSP Response_2_0
  * @{ */
@@ -1131,9 +1131,9 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpRspSpContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_ACTIVATE \
   MC_CMP_2_0_CMD_SP_CONT_ACTIVATE
@@ -1180,7 +1180,7 @@ typedef struct {
     cmpSpContActivateCmd_t cmd;
 } cmpCmdSpContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_ACTIVATE_RSP Response_2_0
  * @{ */
@@ -1223,9 +1223,9 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpRspSpContActivate_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_LOCK_BY_SP \
   MC_CMP_2_0_CMD_SP_CONT_LOCK_BY_SP
@@ -1237,7 +1237,7 @@ typedef struct {
 /** SpContLockBySp signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeader_t cmdHeader;
+    cmpCommandHeader_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpLockBySpCmdSdata_t;
@@ -1256,7 +1256,7 @@ typedef struct {
     cmpSpContLockBySpCmd_t cmd;
 } cmpCmdSpContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_LOCK_BY_SP_RSP Response_2_0
  * @{ */
@@ -1299,9 +1299,9 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpRspSpContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_UNLOCK_BY_SP \
   MC_CMP_2_0_CMD_SP_CONT_UNLOCK_BY_SP
@@ -1313,7 +1313,7 @@ typedef struct {
 /** SpContUnlockBySp signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeader_t cmdHeader;
+    cmpCommandHeader_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpUnlockBySpCmdSdata_t;
@@ -1332,7 +1332,7 @@ typedef struct {
     cmpSpContUnlockBySpCmd_t cmd;
 } cmpCmdSpContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_SP_CONT_UNLOCK_BY_SP_RSP Response_2_0
  * @{ */
@@ -1426,7 +1426,7 @@ typedef struct {
     cmpTltContRegisterActivateCmd_t cmd;
 } cmpCmdTltContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_REGISTER_ACTIVATE_RSP Response_2_0
  * @{ */
@@ -1508,7 +1508,7 @@ typedef struct {
     cmpTltContUnregisterCmd_t cmd;
 } cmpCmdTltContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_UNREGISTER_RSP Response_2_0
  * @{ */
@@ -1551,9 +1551,9 @@ typedef struct {
     mcSoSpCont_t soSpCont;
 } cmpRspTltContUnregister_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_REGISTER \
   MC_CMP_2_0_CMD_TLT_CONT_REGISTER
@@ -1602,7 +1602,7 @@ typedef struct {
     cmpTltContRegisterCmd_t cmd;
 } cmpCmdTltContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_REGISTER_RSP Response_2_0
  * @{ */
@@ -1649,9 +1649,9 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpRspTltContRegister_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_ACTIVATE \
   MC_CMP_2_0_CMD_TLT_CONT_ACTIVATE
@@ -1686,7 +1686,7 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpCmdTltContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_ACTIVATE_RSP Response_2_0
  * @{ */
@@ -1729,9 +1729,9 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpRspTltContActivate_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_LOCK_BY_SP \
   MC_CMP_2_0_CMD_TLT_CONT_LOCK_BY_SP
@@ -1766,7 +1766,7 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpCmdTltContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_LOCK_BY_SP_RSP Response_2_0
  * @{ */
@@ -1809,9 +1809,9 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpRspTltContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_UNLOCK_BY_SP \
   MC_CMP_2_0_CMD_TLT_CONT_UNLOCK_BY_SP
@@ -1846,7 +1846,7 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpCmdTltContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_UNLOCK_BY_SP_RSP Response_2_0
  * @{ */
@@ -1891,7 +1891,7 @@ typedef struct {
 
 /** @} */
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_PERSONALIZE \
   MC_CMP_2_0_CMD_TLT_CONT_PERSONALIZE
@@ -1946,7 +1946,7 @@ typedef struct {
     mcSoTltCont_2_0_t soTltCont;
 } cmpCmdTltContPersonalize_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_2_0_CMD_TLT_CONT_PERSONLIZE_RSP Response_2_0
  * @{ */

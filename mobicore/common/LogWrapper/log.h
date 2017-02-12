@@ -1,41 +1,40 @@
-/** Log wrapper for Android.
- * @{
- * @file
- *
- * Maps LOG_*() macros to __android_log_print() if LOG_ANDROID is defined.
- * Adds some extra info to log output like LOG_TAG, file name and line number.
- *
- * <!-- Copyright Trustonic 2012-2013 -->
+/*
+ * Copyright (c) 2013-2014 TRUSTONIC LIMITED
+ * All rights reserved.
  *
  * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions
- * are met:
- * 1. Redistributions of source code must retain the above copyright
- *    notice, this list of conditions and the following disclaimer.
+ * modification, are permitted provided that the following conditions are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright notice,
+ *    this list of conditions and the following disclaimer.
+ *
  * 2. Redistributions in binary form must reproduce the above copyright
  *    notice, this list of conditions and the following disclaimer in the
  *    documentation and/or other materials provided with the distribution.
- * 3. The name of the author may not be used to endorse or promote
- *    products derived from this software without specific prior
- *    written permission.
  *
- * THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS
- * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
- * WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
- * ARE DISCLAIMED.  IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR ANY
- * DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
- * DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE
- * GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
- * INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
- * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
- * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
- * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * 3. Neither the name of the TRUSTONIC LIMITED nor the names of its
+ *    contributors may be used to endorse or promote products derived from
+ *    this software without specific prior written permission.
+ *
+ * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+ * "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+ * TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR
+ * PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR
+ * CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+ * EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+ * PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
+ * OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
+ * WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
+ * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+ * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ */
+/** Log wrapper for Android.
+ * Maps LOG_*() macros to __android_log_print() if LOG_ANDROID is defined.
+ * Adds some extra info to log output like LOG_TAG, file name and line number.
  */
 #ifndef TLCWRAPPERANDROIDLOG_H_
 #define TLCWRAPPERANDROIDLOG_H_
 
-#include <errno.h>
-#include <string.h>
 #ifndef WIN32
 #include <unistd.h>
 #define GETPID getpid
@@ -78,10 +77,11 @@
     #define LOG_W(fmt, args...) DUMMY_FUNCTION()
 #else
     // add LINE
-    #define LOG_I(fmt, args...) LOG_i(fmt , ## args)
-    #define LOG_W(fmt, args...) LOG_w(fmt , ## args)
+    #define LOG_I(fmt, args...) LOG_i(fmt";%d", ## args, __LINE__)
+    #define LOG_W(fmt, args...) LOG_w(fmt";%d", ## args, __LINE__)
 #endif
-    #define LOG_E(fmt, args...) LOG_e("ERROR - %s():\n***** " fmt, __FUNCTION__, ## args)
+    // LOG_E is always defined
+    #define _LOG_E(fmt, args...) LOG_e(fmt, ## args)
 
     // actually mapping to log system, adding level and tag.
     #define LOG_i(...) __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
@@ -107,10 +107,10 @@
     #define LOG_I(fmt, ...) DUMMY_FUNCTION()
     #define LOG_W(fmt, ...) DUMMY_FUNCTION()
 #else
-    #define LOG_I(...)  _LOG_x("I", __VA_ARGS__)
-    #define LOG_W(...)  _LOG_x("W", __VA_ARGS__)
+    #define LOG_I(...)  _LOG_x("I",__VA_ARGS__)
+    #define LOG_W(...)  _LOG_x("W",__VA_ARGS__)
 #endif
-    #define _LOG_E(...)  _LOG_x("E", __VA_ARGS__)
+    #define _LOG_E(...)  _LOG_x("E",__VA_ARGS__)
 
     #define LOG_i(...) printf(__VA_ARGS__)
 	#define LOG_w(...) printf(__VA_ARGS__)
@@ -124,7 +124,6 @@
 #define LOG_V(...) DUMMY_FUNCTION()
 #endif
 
-#if 0
 /** LOG_E() needs to be more prominent:
  * Display "*********** ERROR ***********" before actual error message.
  */
@@ -132,14 +131,13 @@
             do \
             { \
                 _LOG_E("  *****************************"); \
-                _LOG_E("  *** ERROR: ", __VA_ARGS__); \
+                _LOG_E("  *** ERROR: " __VA_ARGS__); \
                 _LOG_E("  *** Detected in %s/%u()", __FUNCTION__, __LINE__); \
                 _LOG_E("  *****************************"); \
             } while(1!=1)
-#endif
 
 #define LOG_ERRNO(MESSAGE) \
-    LOG_E("%s -- %s (errno %d)", MESSAGE, strerror(errno), errno);
+    LOG_E("%s failed with \"%s\"(errno %i)", MESSAGE, strerror(errno), errno);
 
 #define LOG_I_BUF   LOG_I_Buf
 
@@ -175,13 +173,13 @@ static void LOG_I_Buf(
 		{
 			index += sprintf(&buffer[index], "memory dump");
 		}
-		index += sprintf(&buffer[index], " (0x%08x, %d bytes)", (uint32_t)blob,sizeOfBlob);
+		index += sprintf(&buffer[index], " (%p, %zu bytes)", blob,sizeOfBlob);
 		LOG_I("%s", buffer);
 		index = 0;
 	}
 	else if (NULL == szDescriptor)
 	{
-		index += sprintf(&buffer[index], "Data at 0x%08x: ", (uint32_t)blob);
+		index += sprintf(&buffer[index], "Data at %p: ", blob);
 	}
 
 	if(sizeOfBlob == 0) {
@@ -235,4 +233,3 @@ static void LOG_I_Buf(
 
 #endif /** TLCWRAPPERANDROIDLOG_H_ */
 
-/** @} */

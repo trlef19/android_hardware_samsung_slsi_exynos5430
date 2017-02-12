@@ -15,7 +15,7 @@
  * Copyright © Trustonic Limited 2013.
  *
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright notice,
@@ -50,7 +50,7 @@ typedef struct {
     /** Address of the mapped memory. */
     void* addr;
     /** Size of the mapped memory. */
-    uint32_t len;
+    uint32_t len; 
 } cmpMapInfo_t;
 
 /** Info of the mapped element from a CMP message with NWd. */
@@ -58,7 +58,7 @@ typedef struct {
     /** Offset of the mapped element in the mapped memory. */
     uint32_t offset;
     /** Size of the mapped element. */
-    uint32_t len;
+    uint32_t len; 
 } cmpMapOffsetInfo_t;
 
 /** TCI CMP command header. */
@@ -81,7 +81,7 @@ typedef struct {
     cmpResponseId_t responseId;
     /** Required lenght (return 0 if lenght is enough) of the mapped memory
      * with NWd. */
-    uint32_t len;
+    uint32_t len; 
 } cmpResponseHeaderTci_t;
 
 /** @defgroup MC_CMP_CMD_GET_VERSION_TCI \
@@ -145,7 +145,7 @@ typedef struct {
 /** @} */
 
 /** @defgroup MC_CMP_CMD_GENERATE_AUTH_TOKEN_TCI \
- MC_CMP_CMD_GENERATE_AUTH_TOKEN_TCI
+ MC_CMP_CMD_GENERATE_AUTH_TOKEN_TCI 
  * @{ */
 
 /** @defgroup MC_CMP_CMD_GENERATE_AUTH_TOKEN_TCI_CMD Command
@@ -191,7 +191,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpAuthTokenContMapOffsetInfo;
 } cmpCmdBeginSocAuthenticationTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_BEGIN_SOC_AUTHENTICATION_TCI_RSP Response
  * @{ */
@@ -204,9 +204,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRspMapOffsetInfo;
 } cmpRspBeginSocAuthenticationTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_BEGIN_ROOT_AUTHENTICATION_TCI \
   MC_CMP_CMD_BEGIN_ROOT_AUTHENTICATION_TCI
@@ -223,7 +223,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRootContMapOffsetInfo;
 } cmpCmdBeginRootAuthenticationTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_BEGIN_ROOT_AUTHENTICATION_TCI_RSP Response
  * @{ */
@@ -236,7 +236,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRspMapOffsetInfo;
 } cmpRspBeginRootAuthenticationTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @} */
 
@@ -257,7 +257,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpCmdBeginSpAuthenticationTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_BEGIN_SP_AUTHENTICATION_TCI_RSP Response
  * @{ */
@@ -270,9 +270,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRspMapOffsetInfo;
 } cmpRspBeginSpAuthenticationTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_TCI \
   MC_CMP_CMD_AUTHENTICATE_TCI
@@ -287,7 +287,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdAuthenticateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_TCI_RSP Response
  * @{ */
@@ -300,9 +300,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRspMapOffsetInfo;
 } cmpRspAuthenticateTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_TERMINATE_TCI \
   MC_CMP_CMD_AUTHENTICATE_TERMINATE_TCI
@@ -317,7 +317,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdAuthenticateTerminateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_TERMINATE_TCI_RSP Response
  * @{ */
@@ -330,9 +330,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRspMapOffsetInfo;
 } cmpRspAuthenticateTerminateTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_REGISTER_ACTIVATE_TCI \
   MC_CMP_CMD_ROOT_CONT_REGISTER_ACTIVATE_TCI
@@ -347,7 +347,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdRootContRegisterActivateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_REGISTER_ACTIVATE_TCI_RSP Response
  * @{ */
@@ -379,7 +379,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdRootContUnregisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_UNREGISTER_TCI_RSP Response
  * @{ */
@@ -392,9 +392,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRspMapOffsetInfo;
 } cmpRspRootContUnregisterTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_LOCK_BY_ROOT_TCI \
   MC_CMP_CMD_ROOT_CONT_LOCK_BY_ROOT_TCI
@@ -409,7 +409,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdRootContLockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_LOCK_BY_ROOT_TCI_RSP Response
  * @{ */
@@ -424,9 +424,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRootContMapOffsetInfo;
 } cmpRspRootContLockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_UNLOCK_BY_ROOT_TCI \
   MC_CMP_CMD_ROOT_CONT_UNLOCK_BY_ROOT_TCI
@@ -441,7 +441,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdRootContUnlockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_UNLOCK_BY_ROOT_TCI_RSP Response
  * @{ */
@@ -456,9 +456,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRootContMapOffsetInfo;
 } cmpRspRootContUnlockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER_ACTIVATE_TCI \
   MC_CMP_CMD_SP_CONT_REGISTER_ACTIVATE_TCI
@@ -473,7 +473,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdSpContRegisterActivateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER_ACTIVATE_TCI_RSP Response
  * @{ */
@@ -490,9 +490,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContRegisterActivateTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNREGISTER_TCI \
   MC_CMP_CMD_SP_CONT_UNREGISTER_TCI
@@ -507,7 +507,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdSpContUnregisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNREGISTER_TCI_RSP Response
  * @{ */
@@ -522,7 +522,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpRootContMapOffsetInfo;
 } cmpRspSpContUnregisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @} */
 
@@ -539,7 +539,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdSpContRegisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER_TCI_RSP Response
  * @{ */
@@ -556,9 +556,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContRegisterTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_ROOT_TCI \
   MC_CMP_CMD_SP_CONT_LOCK_BY_ROOT_TCI
@@ -575,7 +575,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpCmdSpContLockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_ROOT_TCI_RSP Response
  * @{ */
@@ -590,9 +590,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContLockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_ROOT_TCI \
   MC_CMP_CMD_SP_CONT_UNLOCK_BY_ROOT_TCI
@@ -609,7 +609,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpCmdSpContUnlockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_ROOT_TCI_RSP Response
  * @{ */
@@ -624,9 +624,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContUnlockByRootTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_ACTIVATE_TCI \
   MC_CMP_CMD_SP_CONT_ACTIVATE_TCI
@@ -641,7 +641,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdSpContActivateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_ACTIVATE_TCI_RSP Response
  * @{ */
@@ -656,9 +656,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContActivateTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_SP_TCI \
   MC_CMP_CMD_SP_CONT_LOCK_BY_SP_TCI
@@ -673,7 +673,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdSpContLockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_SP_TCI_RSP Response
  * @{ */
@@ -688,9 +688,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContLockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_SP_TCI \
   MC_CMP_CMD_SP_CONT_UNLOCK_BY_SP_TCI
@@ -705,7 +705,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdSpContUnlockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_SP_TCI_RSP Response
  * @{ */
@@ -720,9 +720,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpSpContMapOffsetInfo;
 } cmpRspSpContUnlockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_REGISTER_ACTIVATE_TCI \
   MC_CMP_CMD_TLT_CONT_REGISTER_ACTIVATE_TCI
@@ -737,7 +737,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdTltContRegisterActivateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_REGISTER_ACTIVATE_TCI_RSP Response
  * @{ */
@@ -756,7 +756,7 @@ typedef struct {
 
 /** @} */
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNREGISTER_TCI \
   MC_CMP_CMD_TLT_CONT_UNREGISTER_TCI
@@ -771,7 +771,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdTltContUnregisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNREGISTER_TCI_RSP Response
  * @{ */
@@ -803,7 +803,7 @@ typedef struct {
     cmpCommandHeaderTci_t cmdHeader;
 } cmpCmdTltContRegisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_REGISTER_TCI_RSP Response
  * @{ */
@@ -820,7 +820,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpRspTltContRegisterTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @} */
 
@@ -839,7 +839,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpCmdTltContActivateTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_ACTIVATE_TCI_RSP Response
  * @{ */
@@ -854,9 +854,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpRspTltContActivateTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_LOCK_BY_SP_TCI \
   MC_CMP_CMD_TLT_CONT_LOCK_BY_SP_TCI
@@ -873,7 +873,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpCmdTltContLockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_LOCK_BY_SP_TCI_RSP Response
  * @{ */
@@ -888,9 +888,9 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpRspTltContLockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNLOCK_BY_SP_TCI \
   MC_CMP_CMD_TLT_CONT_UNLOCK_BY_SP_TCI
@@ -907,7 +907,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpCmdTltContUnlockBySpTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNLOCK_BY_SP_TCI_RSP Response
  * @{ */
@@ -941,7 +941,7 @@ typedef struct {
     cmpMapOffsetInfo_t cmpTltContMapOffsetInfo;
 } cmpCmdTltContPersonalizeTci_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_PERSONALIZE_TCI_RSP Response
  * @{ */

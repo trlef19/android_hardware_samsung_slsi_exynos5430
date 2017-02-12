@@ -9,7 +9,7 @@
  * Copyright © Trustonic Limited 2013.
  *
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright notice,
@@ -47,7 +47,7 @@ typedef enum cmpCommands_t {
     MC_CMP_CMD_AUTHENTICATE = 0,
     MC_CMP_CMD_BEGIN_ROOT_AUTHENTICATION = 1,
     MC_CMP_CMD_BEGIN_SOC_AUTHENTICATION = 2,
-    MC_CMP_CMD_BEGIN_SP_AUTHENTICATION = 3,
+    MC_CMP_CMD_BEGIN_SP_AUTHENTICATION = 3, 
     MC_CMP_CMD_GENERATE_AUTH_TOKEN = 4,
     MC_CMP_CMD_GET_VERSION = 5,
     //MC_CMP_CMD_ROOT_CONT_ACTIVATE = 6,

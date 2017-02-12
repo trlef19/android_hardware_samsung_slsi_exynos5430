@@ -10,7 +10,7 @@
  * Copyright © Trustonic Limited 2013.
  *
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright notice,
@@ -150,7 +150,7 @@ typedef union {
     /** Sp administrative command TltContActivate. */
     cmpRspTltContActivateTci_t cmpRspTltContActivateTci;
     /** Sp administrative command TltContLockBySp. */
-    cmpCmdTltContLockBySpTci_t cmpCmdTltContLockBySpTci;
+    cmpCmdTltContLockBySpTci_t cmpCmdTltContLockBySpTci; 
     /** Sp administrative response TltContLockBySp. */
     cmpRspTltContLockBySpTci_t cmpRspTltContLockBySpTci;
     /** Sp administrative command TltContUnlockBySp. */

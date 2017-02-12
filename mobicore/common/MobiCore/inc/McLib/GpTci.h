@@ -28,7 +28,6 @@
  * OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
  * ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-
 #ifndef _GP_TCI_H_
 #define _GP_TCI_H_
 
@@ -77,11 +76,6 @@ typedef struct {
     uint32_t returnOrigin;
     uint32_t returnStatus;
 } _TEEC_TCI;
-
-#define TEEC_MEMREF_WHOLE             0xC
-#define TEEC_MEMREF_PARTIAL_INPUT     0xD
-#define TEEC_MEMREF_PARTIAL_OUTPUT    0xE
-#define TEEC_MEMREF_PARTIAL_INOUT     0xF
 
 /**
  * Termination codes

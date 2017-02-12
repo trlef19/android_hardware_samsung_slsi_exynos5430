@@ -15,7 +15,7 @@
  * Copyright © Trustonic Limited 2013.
  *
  * All rights reserved.
- *
+ * 
  * Redistribution and use in source and binary forms, with or without
  * modification, are permitted provided that the following conditions are met:
  * 1. Redistributions of source code must retain the above copyright notice,
@@ -192,7 +192,7 @@ typedef struct {
     cmpBeginRootAuthenticationCmd_t cmd;
 } cmpCmdBeginRootAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_BEGIN_ROOT_AUTHENTICATION_RSP Response
  * @{ */
@@ -221,7 +221,7 @@ typedef struct {
     cmpBeginRootAuthenticationRsp_t rsp;
 } cmpRspBeginRootAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP BeginRootAuthentication message. */
 typedef union {
@@ -231,7 +231,7 @@ typedef union {
     cmpRspBeginRootAuthentication_t cmpRspBeginRootAuthentication;
 } cmpMapBeginRootAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_BEGIN_SP_AUTHENTICATION \
   MC_CMP_CMD_BEGIN_SP_AUTHENTICATION
@@ -285,7 +285,7 @@ typedef struct {
     cmpBeginSpAuthenticationRsp_t rsp;
 } cmpRspBeginSpAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP BeginSpAuthentication message. */
 typedef union {
@@ -295,7 +295,7 @@ typedef union {
     cmpRspBeginSpAuthentication_t cmpRspBeginSpAuthentication;
 } cmpMapBeginSpAuthentication_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE MC_CMP_CMD_AUTHENTICATE
  * @{ */
@@ -333,7 +333,7 @@ typedef struct {
     uint32_t edLen;
     /** Encrypted and padded data. */
     cmpAuthCmdEd_t ed;
-} cmpAuthCmdSdata_t;
+} cmpAuthCmdSdata_t; 
 
 /** Authenticate signed command and signature. */
 typedef struct {
@@ -349,7 +349,7 @@ typedef struct {
     cmpAuthenticateCmd_t cmd;
 } cmpCmdAuthenticate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_RSP Response
  * @{ */
@@ -410,7 +410,7 @@ typedef union {
     cmpRspAuthenticate_t cmpRspAuthenticate;
 } cmpMapAuthenticate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_TERMINATE \
   MC_CMP_CMD_AUTHENTICATE_TERMINATE
@@ -439,7 +439,7 @@ typedef struct {
     cmpAuthenticateTerminateCmd_t cmd;
 } cmpCmdAuthenticateTerminate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_AUTHENTICATE_TERMINATE_RSP Response
  * @{ */
@@ -474,7 +474,7 @@ typedef union {
     cmpRspAuthenticateTerminate_t cmpRspAuthenticateTerminate;
 } cmpMapAuthenticateTerminate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_REGISTER_ACTIVATE \
   MC_CMP_CMD_ROOT_CONT_REGISTER_ACTIVATE
@@ -523,7 +523,7 @@ typedef struct {
     cmpRootContRegisterActivateCmd_t cmd;
 } cmpCmdRootContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_REGISTER_ACTIVATE_RSP Response
  * @{ */
@@ -609,7 +609,7 @@ typedef struct {
     cmpRootContUnregisterCmd_t cmd;
 } cmpCmdRootContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_UNREGISTER_RSP Response
  * @{ */
@@ -652,7 +652,7 @@ typedef struct {
     cmpRootContUnregisterRsp_t rsp;
 } cmpRspRootContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP RootContUnregister message. */
 typedef union {
@@ -662,7 +662,7 @@ typedef union {
     cmpRspRootContUnregister_t cmpRspRootContUnregister;
 } cmpMapRootContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_LOCK_BY_ROOT \
   MC_CMP_CMD_ROOT_CONT_LOCK_BY_ROOT
@@ -691,7 +691,7 @@ typedef struct {
     cmpRootContLockByRootCmd_t cmd;
 } cmpCmdRootContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_LOCK_BY_ROOT_RSP Response
  * @{ */
@@ -719,7 +719,7 @@ typedef struct {
     cmpRootContLockByRootRsp_t rsp;
 } cmpRspRootContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP RootContLockByRoot message. */
 typedef union {
@@ -729,7 +729,7 @@ typedef union {
     cmpRspRootContLockByRoot_t cmpRspRootContLockByRoot;
 } cmpMapRootContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_UNLOCK_BY_ROOT \
   MC_CMP_CMD_ROOT_CONT_UNLOCK_BY_ROOT
@@ -758,7 +758,7 @@ typedef struct {
     cmpRootContUnlockByRootCmd_t cmd;
 } cmpCmdRootContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_ROOT_CONT_UNLOCK_BY_ROOT_RSP Response
  * @{ */
@@ -787,7 +787,7 @@ typedef struct {
     cmpRootContUnlockByRootRsp_t rsp;
 } cmpRspRootContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP RootContUnlockByRoot message. */
 typedef union {
@@ -797,7 +797,7 @@ typedef union {
     cmpRspRootContUnlockByRoot_t cmpRspRootContUnlockByRoot;
 } cmpMapRootContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER_ACTIVATE \
   MC_CMP_CMD_SP_CONT_REGISTER_ACTIVATE
@@ -846,7 +846,7 @@ typedef struct {
     cmpSpContRegisterActivateCmd_t cmd;
 } cmpCmdSpContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER_ACTIVATE_RSP Response
  * @{ */
@@ -879,7 +879,7 @@ typedef struct {
     cmpSpContRegisterActivateRsp_t rsp;
 } cmpRspSpContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContRegisterActivate message. */
 typedef union {
@@ -889,7 +889,7 @@ typedef union {
     cmpRspSpContRegisterActivate_t cmpRspSpContRegisterActivate;
 } cmpMapSpContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNREGISTER \
   MC_CMP_CMD_SP_CONT_UNREGISTER
@@ -920,7 +920,7 @@ typedef struct {
     cmpSpContUnregisterCmd_t cmd;
 } cmpCmdSpContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNREGISTER_RSP Response
  * @{ */
@@ -949,7 +949,7 @@ typedef struct {
     cmpSpContUnregisterRsp_t rsp;
 } cmpRspSpContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContUnregister message. */
 typedef union {
@@ -959,7 +959,7 @@ typedef union {
     cmpRspSpContUnregister_t cmpRspSpContUnregister;
 } cmpMapSpContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER \
   MC_CMP_CMD_SP_CONT_REGISTER
@@ -1008,7 +1008,7 @@ typedef struct {
     cmpSpContRegisterCmd_t cmd;
 } cmpCmdSpContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_REGISTER_RSP Response
  * @{ */
@@ -1041,7 +1041,7 @@ typedef struct {
     cmpSpContRegisterRsp_t rsp;
 } cmpRspSpContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContRegister message. */
 typedef union {
@@ -1051,7 +1051,7 @@ typedef union {
     cmpRspSpContRegister_t cmpRspSpContRegister;
 } cmpMapSpContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_ROOT \
   MC_CMP_CMD_SP_CONT_LOCK_BY_ROOT
@@ -1063,7 +1063,7 @@ typedef union {
 /** SpContLockByRoot signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeaderMap_t cmdHeader;
+    cmpCommandHeaderMap_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpLockByRootCmdSdata_t;
@@ -1082,7 +1082,7 @@ typedef struct {
     cmpSpContLockByRootCmd_t cmd;
 } cmpCmdSpContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_ROOT_RSP Response
  * @{ */
@@ -1111,7 +1111,7 @@ typedef struct {
     cmpSpContLockByRootRsp_t rsp;
 } cmpRspSpContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContLockByRoot message. */
 typedef union {
@@ -1121,7 +1121,7 @@ typedef union {
     cmpRspSpContLockByRoot_t cmpRspSpContLockByRoot;
 } cmpMapSpContLockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_ROOT \
   MC_CMP_CMD_SP_CONT_UNLOCK_BY_ROOT
@@ -1133,7 +1133,7 @@ typedef union {
 /** SpContUnlockByRoot signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeaderMap_t cmdHeader;
+    cmpCommandHeaderMap_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpUnlockByRootCmdSdata_t;
@@ -1152,7 +1152,7 @@ typedef struct {
     cmpSpContUnlockByRootCmd_t cmd;
 } cmpCmdSpContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_ROOT_RSP Response
  * @{ */
@@ -1181,7 +1181,7 @@ typedef struct {
     cmpSpContUnlockByRootRsp_t rsp;
 } cmpRspSpContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContUnlockByRoot message. */
 typedef union {
@@ -1191,7 +1191,7 @@ typedef union {
     cmpRspSpContUnlockByRoot_t cmpRspSpContUnlockByRoot;
 } cmpMapSpContUnlockByRoot_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_ACTIVATE \
   MC_CMP_CMD_SP_CONT_ACTIVATE
@@ -1240,7 +1240,7 @@ typedef struct {
     cmpSpContActivateCmd_t cmd;
 } cmpCmdSpContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_ACTIVATE_RSP Response
  * @{ */
@@ -1269,7 +1269,7 @@ typedef struct {
     cmpSpContActivateRsp_t rsp;
 } cmpRspSpContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContActivate message. */
 typedef union {
@@ -1279,7 +1279,7 @@ typedef union {
     cmpRspSpContActivate_t cmpRspSpContActivate;
 } cmpMapSpContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_SP \
   MC_CMP_CMD_SP_CONT_LOCK_BY_SP
@@ -1291,7 +1291,7 @@ typedef union {
 /** SpContLockBySp signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeaderMap_t cmdHeader;
+    cmpCommandHeaderMap_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpLockBySpCmdSdata_t;
@@ -1310,7 +1310,7 @@ typedef struct {
     cmpSpContLockBySpCmd_t cmd;
 } cmpCmdSpContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_LOCK_BY_SP_RSP Response
  * @{ */
@@ -1339,7 +1339,7 @@ typedef struct {
     cmpSpContLockBySpRsp_t rsp;
 } cmpRspSpContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContLockBySp message. */
 typedef union {
@@ -1349,7 +1349,7 @@ typedef union {
     cmpRspSpContLockBySp_t cmpRspSpContLockBySp;
 } cmpMapSpContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_SP \
   MC_CMP_CMD_SP_CONT_UNLOCK_BY_SP
@@ -1361,7 +1361,7 @@ typedef union {
 /** SpContUnlockBySp signed command. */
 typedef struct {
     /** Command header. */
-    cmpCommandHeaderMap_t cmdHeader;
+    cmpCommandHeaderMap_t cmdHeader; 
     /** Spid. */
     mcSpid_t spid;
 } cmpSpUnlockBySpCmdSdata_t;
@@ -1380,7 +1380,7 @@ typedef struct {
     cmpSpContUnlockBySpCmd_t cmd;
 } cmpCmdSpContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_SP_CONT_UNLOCK_BY_SP_RSP Response
  * @{ */
@@ -1409,7 +1409,7 @@ typedef struct {
     cmpSpContUnlockBySpRsp_t rsp;
 } cmpRspSpContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP SpContUnlockBySp message. */
 typedef union {
@@ -1419,7 +1419,7 @@ typedef union {
     cmpRspSpContUnlockBySp_t cmpRspSpContUnlockBySp;
 } cmpMapSpContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_REGISTER_ACTIVATE \
   MC_CMP_CMD_TLT_CONT_REGISTER_ACTIVATE
@@ -1451,7 +1451,7 @@ typedef struct {
     /** Uuid. */
     mcUuid_t uuid;
     /** Trustlet public key hash. */
-    mcSha256_t skSpTltEnc;
+    mcSha256_t skSpTltEnc; 
     /** Minimum trustlet version supported. */
     mcContVersion_t tltVersion;
     /** Encrypted and padded data size. */
@@ -1474,7 +1474,7 @@ typedef struct {
     cmpTltContRegisterActivateCmd_t cmd;
 } cmpCmdTltContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_REGISTER_ACTIVATE_RSP Response
  * @{ */
@@ -1505,7 +1505,7 @@ typedef struct {
     cmpTltContRegisterActivateRsp_t rsp;
 } cmpRspTltContRegisterActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP TltContRegisterActivate message. */
 typedef union {
@@ -1548,7 +1548,7 @@ typedef struct {
     cmpTltContUnregisterCmd_t cmd;
 } cmpCmdTltContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNREGISTER_RSP Response
  * @{ */
@@ -1577,7 +1577,7 @@ typedef struct {
     cmpTltContUnregisterRsp_t rsp;
 } cmpRspTltContUnregister_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP TltContUnregister message. */
 typedef union {
@@ -1619,7 +1619,7 @@ typedef struct {
     /** Uuid. */
     mcUuid_t uuid;
     /** Trustlet public key hash. */
-    mcSha256_t skSpTltEnc;
+    mcSha256_t skSpTltEnc; 
     /** Minimum trustlet version supported. */
     mcContVersion_t tltVersion;
     /** Encrypted and padded data size. */
@@ -1642,7 +1642,7 @@ typedef struct {
     cmpTltContRegisterCmd_t cmd;
 } cmpCmdTltContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_REGISTER_RSP Response
  * @{ */
@@ -1675,7 +1675,7 @@ typedef struct {
     cmpTltContRegisterRsp_t rsp;
 } cmpRspTltContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP TltContRegister message. */
 typedef union {
@@ -1685,7 +1685,7 @@ typedef union {
     cmpRspTltContRegister_t cmpRspTltContRegister;
 } cmpMapTltContRegister_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_ACTIVATE \
   MC_CMP_CMD_TLT_CONT_ACTIVATE
@@ -1718,7 +1718,7 @@ typedef struct {
     cmpTltContActivateCmd_t cmd;
 } cmpCmdTltContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_ACTIVATE_RSP Response
  * @{ */
@@ -1747,7 +1747,7 @@ typedef struct {
     cmpTltContActivateRsp_t rsp;
 } cmpRspTltContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP TltContActivate message. */
 typedef union {
@@ -1757,7 +1757,7 @@ typedef union {
     cmpRspTltContActivate_t cmpRspTltContActivate;
 } cmpMapTltContActivate_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_LOCK_BY_SP \
   MC_CMP_CMD_TLT_CONT_LOCK_BY_SP
@@ -1790,7 +1790,7 @@ typedef struct {
     cmpTltContLockBySpCmd_t cmd;
 } cmpCmdTltContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_LOCK_BY_SP_RSP Response
  * @{ */
@@ -1819,7 +1819,7 @@ typedef struct {
     cmpTltContLockBySpRsp_t rsp;
 } cmpRspTltContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** Map CMP TltContLockBySp message. */
 typedef union {
@@ -1829,7 +1829,7 @@ typedef union {
     cmpRspTltContLockBySp_t cmpRspTltContLockBySp;
 } cmpMapTltContLockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNLOCK_BY_SP \
   MC_CMP_CMD_TLT_CONT_UNLOCK_BY_SP
@@ -1862,7 +1862,7 @@ typedef struct {
     cmpTltContUnlockBySpCmd_t cmd;
 } cmpCmdTltContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_UNLOCK_BY_SP_RSP Response
  * @{ */
@@ -1901,7 +1901,7 @@ typedef union {
     cmpRspTltContUnlockBySp_t cmpRspTltContUnlockBySp;
 } cmpMapTltContUnlockBySp_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_PERSONALIZE \
   MC_CMP_CMD_TLT_CONT_PERSONALIZE
@@ -1953,7 +1953,7 @@ typedef struct {
     cmpTltContPersonalizeCmd_t cmd;
 } cmpCmdTltContPersonalize_t;
 
-/** @} */
+/** @} */ 
 
 /** @defgroup MC_CMP_CMD_TLT_CONT_PERSONALIZE_RSP Response
  * @{ */
