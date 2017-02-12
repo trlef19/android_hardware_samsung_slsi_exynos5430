@@ -15,6 +15,7 @@
  */
 
 #include <stdlib.h>
+#include <strings.h>
 
 #include "tlc_communication.h"
 
