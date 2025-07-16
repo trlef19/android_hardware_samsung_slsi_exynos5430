@@ -29,9 +29,9 @@ LOCAL_SRC_FILES	+= 	\
 	sec_g2ddrm.cpp
 
 LOCAL_C_INCLUDES += \
-	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_BOARD_PLATFORM)/include \
-	$(TOP)/hardware/samsung_slsi-cm/$(TARGET_SOC)/mobicore/common/LogWrapper \
-	$(TOP)/hardware/samsung_slsi-cm/exynos/include
+	$(TOP)/hardware/samsung_slsi/$(TARGET_BOARD_PLATFORM)/include \
+	$(TOP)/hardware/samsung_slsi/$(TARGET_SOC)/mobicore/common/LogWrapper \
+	$(TOP)/hardware/samsung_slsi/exynos/include
 
 LOCAL_SHARED_LIBRARIES += libMcClient liblog
 
