@@ -38,7 +38,6 @@ LOCAL_ADDITIONAL_DEPENDENCIES += \
 LOCAL_SRC_FILES := \
 	ExynosPrimaryDisplay.cpp
 
-LOCAL_MODULE_TAGS := eng
 LOCAL_MODULE := libdisplaymodule
 include $(BUILD_SHARED_LIBRARY)
 
