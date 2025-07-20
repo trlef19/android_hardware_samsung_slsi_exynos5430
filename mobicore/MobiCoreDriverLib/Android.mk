@@ -177,7 +177,7 @@ LOCAL_C_INCLUDES += \
 # Common components
 include $(LOCAL_PATH)/Kernel/Android.mk
 # Logwrapper
-#include $(COMP_PATH_Logwrapper)/Android.mk
+include $(COMP_PATH_Logwrapper)/Android.mk
 
 include $(BUILD_EXECUTABLE)
 
