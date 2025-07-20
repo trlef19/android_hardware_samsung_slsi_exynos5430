@@ -102,7 +102,6 @@ LOCAL_C_INCLUDES := $(GLOBAL_INCLUDES) \
 	$(LOCAL_PATH)/ClientLib/Contrib \
 	$(LOCAL_PATH)/ClientLib/public \
 	$(LOCAL_PATH)/ClientLib/public/GP \
-	$(COMP_PATH_MobiCore_Src_Code)/McLib/public \
 	external/protobuf/src
 
 LOCAL_SHARED_LIBRARIES += \
