@@ -16,7 +16,7 @@ endif
 # =============================================================================
 include $(CLEAR_VARS)
 LOCAL_MODULE := libMcClient
-LOCAL_MODULE_TAGS := debug eng optional
+LOCAL_MODULE_TAGS := optional
 LOCAL_C_INCLUDES += $(GLOBAL_INCLUDES)
 LOCAL_SHARED_LIBRARIES += $(GLOBAL_LIBRARIES)
 
@@ -85,7 +85,7 @@ ifdef use_proxy
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libMcProxy
-LOCAL_MODULE_TAGS := eng
+#LOCAL_MODULE_TAGS :=
 
 LOCAL_CFLAGS := -fvisibility=hidden
 LOCAL_CFLAGS += -DLOG_TAG=\"McProxy\"
@@ -130,7 +130,7 @@ endif # use_proxy
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := mcDriverDaemon
-LOCAL_MODULE_TAGS := debug eng optional
+LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS += -include buildTag.h
 LOCAL_CFLAGS += -DLOG_TAG=\"McDaemon\"
 LOCAL_CFLAGS += -DTBASE_API_LEVEL=3
@@ -187,7 +187,7 @@ include $(BUILD_EXECUTABLE)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE := libMcRegistry
-LOCAL_MODULE_TAGS := debug eng optional
+LOCAL_MODULE_TAGS := optional
 LOCAL_CFLAGS := -DLOG_TAG=\"McRegistry\"
 LOCAL_C_INCLUDES += $(GLOBAL_INCLUDES)
 LOCAL_SHARED_LIBRARIES += $(GLOBAL_LIBRARIES)
