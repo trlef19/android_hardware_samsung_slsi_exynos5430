@@ -43,7 +43,7 @@ GDM_PROVLIB_SHARED_LIBS=libMcClient
 
 
 MOBICORE_DIR_INC := $(MC_INCLUDE_DIR) $(MOBICORE_PROJECT_PATH)/common/curl/include
-ifeq ($(wildcard external/curl/Android.mk),)
+ifeq ($(wildcard $(TOP)/external/curl/Android.mk),)
 include $(MOBICORE_PROJECT_PATH)/common/curl/Android.mk
 endif
 include $(MOBICORE_PROJECT_PATH)/tlcm/Android.mk
