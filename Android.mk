@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_SLSI_VARIANT),cm)
+ifeq ($(TARGET_SLSI_VARIANT),bsp)
 ifeq ($(TARGET_SOC), exynos5430)
 
 exynos543x_dirs := \
