@@ -12,34 +12,5 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-LOCAL_PATH := $(call my-dir)
-
-ifeq ($(filter exynos5,$(TARGET_BOARD_PLATFORM)),exynos5)
-
-include $(CLEAR_VARS)
-
-LOCAL_MODULE := libhwcutilsmodule
-LOCAL_SRC_FILES := ExynosMPPModule.cpp
-
-LOCAL_SHARED_LIBRARIES := liblog libutils libcutils libexynosutils libexynosv4l2 libsync libhwcutils libexynosgscaler libmpp
-
-LOCAL_CFLAGS += $(if $(filter true,$(BOARD_USES_VIRTUAL_DISPLAY)),-DUSES_VIRTUAL_DISPLAY)
-
-LOCAL_C_INCLUDES := \
- $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include \
- $(TOP)/hardware/samsung_slsi/$(TARGET_BOARD_PLATFORM)/include \
- $(TOP)/hardware/samsung_slsi/exynos/include \
- $(TOP)/hardware/samsung_slsi/exynos/libexynosutils \
- $(TOP)/hardware/samsung_slsi/$(TARGET_SOC)/include \
- $(TOP)/hardware/samsung_slsi/$(TARGET_SOC)/libhwcmodule \
- $(TOP)/hardware/samsung_slsi/exynos/libhwc \
- $(TOP)/hardware/samsung_slsi/exynos/libhwcutils \
- $(TOP)/hardware/samsung_slsi/exynos/libdisplay \
- $(TOP)/hardware/samsung_slsi/exynos/libmpp
-
-LOCAL_ADDITIONAL_DEPENDENCIES := \
- $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
-
-include $(BUILD_SHARED_LIBRARY)
-
-endif
+LOCAL_SRC_FILES += \
+	./../../$(TARGET_SOC)/libhwcutilsmodule/ExynosMPPModule.cpp
