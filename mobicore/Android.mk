@@ -7,7 +7,7 @@
 # Only compile proxy support for Android M (use stlport absence as indicator)
 use_proxy =
 ifeq ($(wildcard external/stlport/libstlport.mk),)
-	use_proxy = yes
+ use_proxy = yes
 endif
 
 MOBICORE_PROJECT_PATH := $(call my-dir)
@@ -19,19 +19,22 @@ COMP_PATH_AndroidOpenSsl := $(MOBICORE_PROJECT_PATH)/../openssl
 
 # Application wide Cflags
 GLOBAL_INCLUDES := bionic \
-	external/stlport/stlport \
-	$(COMP_PATH_MobiCore)/inc \
-	$(COMP_PATH_MobiCore)/inc/McLib \
-	$(COMP_PATH_MobiCoreDriverMod)/Public \
-	$(COMP_PATH_MobiCore)/inc/TlCm
+ external/stlport/stlport \
+ $(COMP_PATH_MobiCore)/inc \
+ $(COMP_PATH_MobiCore)/inc/McLib \
+ $(COMP_PATH_MobiCoreDriverMod)/Public \
+ $(COMP_PATH_MobiCore)/inc/TlCm
 
 ifndef use_proxy
 GLOBAL_LIBRARIES := libstlport
 endif
 
-# Include the Daemon
-include $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/Android.mk
+# The following modules are not required for LineageOS port and are disabled:
 
+# Include the Daemon
+# include $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/Android.mk
+
+# MC includes (optional and not used)
 MC_INCLUDE_DIR := $(COMP_PATH_MobiCore)/inc \
     $(COMP_PATH_MobiCore)/inc/TlCm \
     $(COMP_PATH_MobiCore)/inc/TlCm/2.0 \
@@ -41,8 +44,9 @@ MC_DEBUG := _DEBUG
 SYSTEM_LIB_DIR=/system/lib
 GDM_PROVLIB_SHARED_LIBS=libMcClient
 
-
 MOBICORE_DIR_INC := $(MC_INCLUDE_DIR) $(MOBICORE_PROJECT_PATH)/common/curl/include
+
+# Disabled Mobicore modules
 include $(MOBICORE_PROJECT_PATH)/tlcm/Android.mk
 include $(MOBICORE_PROJECT_PATH)/rootpa/Code/Common/Android.mk
 include $(MOBICORE_PROJECT_PATH)/rootpa/Code/Android/app/jni/Android.mk
@@ -59,4 +63,3 @@ endif
 ifneq ($(wildcard $(MOBICORE_PROJECT_PATH)/TlcTeeKeymaster/Android.mk),)
 include $(MOBICORE_PROJECT_PATH)/TlcTeeKeymaster/Android.mk
 endif
-
