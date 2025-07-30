@@ -32,14 +32,13 @@ endif
 # The following modules are not required for LineageOS port and are disabled:
 
 # Include the Daemon
-# include $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/Android.mk
+ include $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/Android.mk
 
-# MC includes (optional and not used)
 MC_INCLUDE_DIR := $(COMP_PATH_MobiCore)/inc \
     $(COMP_PATH_MobiCore)/inc/TlCm \
     $(COMP_PATH_MobiCore)/inc/TlCm/2.0 \
-   # $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/ClientLib/public \
-   # $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/Registry/Public
+   $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/ClientLib/public \
+   $(MOBICORE_PROJECT_PATH)/MobiCoreDriverLib/Registry/Public
 MC_DEBUG := _DEBUG
 SYSTEM_LIB_DIR=/system/lib
 GDM_PROVLIB_SHARED_LIBS=libMcClient
