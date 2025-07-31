@@ -131,10 +131,10 @@ static int fb_post(struct framebuffer_device_t* dev, buffer_handle_t buffer)
     if (private_handle_t::validate(buffer) < 0)
         return -EINVAL;
 
-    private_handle_t const* hnd = reinterpret_cast<private_handle_t const*>(buffer);
+    //private_handle_t const* hnd = reinterpret_cast<private_handle_t const*>(buffer);
     private_module_t* m = reinterpret_cast<private_module_t*>(dev->common.module);
 
-    ALOGW("%s: page flipping %s", page_flip_allowed ? " allowed" : " not allowed");
+    //ALOGW("%s: page flipping %s", page_flip_allowed ? " allowed" : " not allowed");
 
     if (page_flip_allowed) {
         hwc_callback_queue_t *queue = reinterpret_cast<hwc_callback_queue_t *>(m->queue);
@@ -217,14 +217,14 @@ err_asprintf:
 
 int init_fb(struct private_module_t* module)
 {
-    char const * const device_template[] = {
+    /*char const * const device_template[] = {
         "/dev/graphics/fb%u",
         "/dev/fb%u",
         NULL
-    };
+    };*/
 
     int fd = -1;
-    int i = 0;
+   // int i = 0;
 
     fd = open("/dev/graphics/fb0", O_RDWR);
     if (fd < 0) {
@@ -289,6 +289,7 @@ int init_fb(struct private_module_t* module)
 
 int compositionComplete(struct framebuffer_device_t* dev)
 {
+ (void)dev; //dummy line
     /* By doing a finish here we force the GL driver to start rendering
      all the drawcalls up to this point, and to wait for the rendering to be complete.*/
     glFinish();
@@ -309,6 +310,7 @@ int compositionComplete(struct framebuffer_device_t* dev)
 int fb_device_open(hw_module_t const* module, const char* name,
                    hw_device_t** device)
 {
+    (void)name;
     int status = -EINVAL;
 #ifdef GRALLOC_16_BITS
     int bits_per_pixel = 16;
