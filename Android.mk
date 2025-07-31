@@ -19,7 +19,6 @@ ifeq ($(TARGET_SOC), exynos5430)
 
 exynos543x_dirs := \
 	mobicore \
-	gralloc \
 	libdisplaymodule \
 	libhwcutilsmodule \
 	libhdmimodule \
