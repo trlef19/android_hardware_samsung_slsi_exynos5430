@@ -40,6 +40,7 @@
 
 static int gralloc_map(gralloc_module_t const* module, buffer_handle_t handle)
 {
+    (void)module; //dummy
     size_t chroma_vstride = 0;
     size_t chroma_size = 0;
     size_t ext_size = 256;
@@ -95,7 +96,7 @@ static int gralloc_unmap(gralloc_module_t const* module, buffer_handle_t handle)
     size_t chroma_vstride = 0;
     size_t chroma_size = 0;
     size_t ext_size = 256;
-
+    (void)module; //dummy
     switch (hnd->format) {
     case HAL_PIXEL_FORMAT_EXYNOS_YCbCr_420_SP_M_TILED:
         chroma_vstride = ALIGN(hnd->height / 2, 32);
@@ -222,7 +223,8 @@ int gralloc_lock(gralloc_module_t const* module,
     // this buffer if relevant. the data cache may need to be
     // flushed or invalidated depending on the usage bits and the
     // hardware.
-
+    (void)module; //dummy
+    usage=0;l=0;t=0;w=0;h=0; //dummy
     if (private_handle_t::validate(handle) < 0)
         return -EINVAL;
 
